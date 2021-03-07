@@ -162,20 +162,9 @@ class Wheel extends React.Component {
         }, 200);
     }
 
-    ok = () => {
-        let center_of_wheel = {
-            x: this.wheel.getBoundingClientRect().x + (this.wheel.getBoundingClientRect().width / 2),
-            y: this.wheel.getBoundingClientRect().y + (this.wheel.getBoundingClientRect().height / 2)
-        }
-        let snap_point_theta = Math.atan2(Math.abs(this.state.snap_point.y - center_of_wheel.y), Math.abs(this.state.snap_point.x - center_of_wheel.x));
-        snap_point_theta = snap_point_theta * (180 / Math.PI);
-
-        console.log(snap_point_theta);
-    }
-
     render() {
         return (
-            <div onClick={this.ok} onWheel={this.handle_scroll} ref={ref_id => this.wheel = ref_id} style={styles.wheel}>
+            <div onWheel={this.handle_scroll} ref={ref_id => this.wheel = ref_id} style={styles.wheel}>
                 {this.state.cards}
             </div>
         )
