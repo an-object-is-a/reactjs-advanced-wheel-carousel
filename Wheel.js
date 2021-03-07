@@ -39,7 +39,7 @@ class Wheel extends React.Component {
     }
 
     handle_scroll = event => {
-        if (this.state.snap_in_progress && !this.props.loaded) {
+        if (this.state.snap_in_progress && !this.state.loaded) {
             return;
         } else {
             clearTimeout(this.anim_id);
